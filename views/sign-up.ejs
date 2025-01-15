@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - JohansFileUploader</title>
+</head>
+<body>
+    <%- include("./partials/errors") %>
+    <form action="sign-up" method="post">
+        <h1>Sign Up</h1>
+        <div>
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname">
+        </div>
+        <div>
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname">
+        </div>
+        <div>
+            <label for="username">User Name</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" name="confirm-password" id="confirm-password">
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>

@@ -6,6 +6,8 @@ const session = require("express-session");
 const { PrismaSessionStore } = require('@quixo3/prisma-session-store');
 const { PrismaClient } = require("@prisma/client");
 const passport = require('passport');
+const indexRouter = require("./routes/indexRouter");
+const mainRouter = require("./routes/mainRouter");
 require("./config/passport");
 
 //asset path
@@ -40,7 +42,10 @@ app.use(express.urlencoded({extended: true}));
 //passport session
 app.use(passport.authenticate('session'));
 
+//router
 
+app.use("/", indexRouter);
+app.use("/home", mainRouter);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
