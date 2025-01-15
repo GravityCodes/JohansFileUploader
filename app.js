@@ -5,6 +5,8 @@ const app = express();
 const session = require("express-session");
 const { PrismaSessionStore } = require('@quixo3/prisma-session-store');
 const { PrismaClient } = require("@prisma/client/extension");
+const passport = require('passport');
+require("./config/passport");
 
 //asset path
 const assetsPath = path.join(__dirname, "public");
@@ -34,6 +36,10 @@ app.use(session({
 
 //form handler
 app.use(express.urlencoded({extended: true}));
+
+//passport session
+app.use(passport.authenticate('session'));
+
 
 const PORT = process.env.PORT || 3000;
 
