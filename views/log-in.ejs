@@ -6,7 +6,9 @@
     <title>Log In - JohansFileUploader</title>
 </head>
 <body>
+    <%- include("./partials/errors.ejs") %>
     <form action="log-in" method="post">
+        <h1>Log in</h1>
         <div>
             <label for="username">User Name</label>
             <input type="text" name="username" id="username">

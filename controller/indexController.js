@@ -47,7 +47,7 @@ const signUpPost = [
     async (req, res) => {
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-            res.status(400).render("sign-up", {errors: errors.array()});
+            return res.status(400).render("sign-up", {errors: errors.array()});
         }
         bcrypt.hash(req.body.password, 10, async (err, hash) => {
             if(err){
@@ -64,9 +64,13 @@ const signUpPost = [
         });
         res.render("log-in");
     }
-]
+];
+
 
 const logInGet = (req, res) => {
+    if(req.session.messages) {
+        return res.render("log-in", {errors: [{ msg: req.session.messages[0]}]});
+      }
     res.render("log-in");
 }
 
