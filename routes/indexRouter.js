@@ -13,7 +13,7 @@ indexRouter.post("/log-in", passport.authenticate("local", {
     successRedirect: "/home",
     failureRedirect: "/log-in",
     failureMessage: true
-}));
+}), indexController.logInPost);
 
 indexRouter.get('/logout', (req, res, next) => {
     req.logout((err) => {
