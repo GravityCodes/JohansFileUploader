@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/output.css">
+    <script src="js/dialogHandler.js" defer></script>
     <title>JohansFileUploader</title>
 </head>
-<body>
-    <h1>Welcome to the app!</h1>
-    <a href="logout">sign out</a>
+<body class="bg-neutral-900 h-screen">
+    <%- include("../partials/nav") %>
+    <main class="flex flex-row bg-neutral-800 w-full h-full" >
+        <div class=" basis-1/6 bg-neutral-900 p-2 border-r-2 border-neutral-700">
+            <h2 class="text-neutral-100 text-xl">Folders</h2>
+            <button id="new-folder-open-btn" class="border border-2 rounded-md border-cyan-900 w-28 text-center text-cyan-700 cursor-pointer">New Folder</button>
+        </div>
+        <div class=" basis-5/6 bg-neutral-950 p-2 ">
+            <h2 class="text-neutral-100 text-xl">Content</h2>
+        </div>
+    </main>
+    <dialog>
+        <button id="new-folder-close-btn">close</button>
+    </dialog>
+    
 </body>
 </html>

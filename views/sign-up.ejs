@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/output.css">
     <title>Sign Up - JohansFileUploader</title>
 </head>
-<body>
-    <%- include("./partials/errors") %>
-    <form action="sign-up" method="post">
-        <h1>Sign Up</h1>
-        <div>
-            <label for="firstname">First Name</label>
-            <input type="text" name="firstname" id="firstname">
+<body class="bg-neutral-900">
+    <%- include("./partials/errors") %>f
+    <form action="sign-up" method="post" class="fixed inset-0 flex flex-col items-center justify-center gap-y-5 bg-neutral-900 w-1/2 max-sm:w-3/4 max-w-lg h-fit m-auto rounded-md p-5 border border-cyan-400 text-neutral-100 ">
+        <h1 class="text-3xl text-cyan-500">File Uploader</h1>
+        <h2 class="text-2xl text-neutral-100">Sign Up</h2>
+        <div class="flex w-full justify-between gap-x-2">
+            <div class="flex flex-col w-full gap-y-2" >
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" class="rounded-md outline-cyan-500 bg-neutral-950 p-2 ">
+            </div>
+            <div class="flex flex-col w-full gap-y-2">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" class="rounded-md outline-cyan-500 bg-neutral-950 p-2 ">
+            </div>
         </div>
-        <div>
-            <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" id="lastname">
-        </div>
-        <div>
+        <div class="flex flex-col w-full gap-y-2">
             <label for="username">User Name</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" class="rounded-md outline-cyan-500 bg-neutral-950 p-2 ">
         </div>
-        <div>
+        <div class="flex flex-col w-full gap-y-2">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" class="rounded-md outline-cyan-500 bg-neutral-950 p-2 ">
         </div>
-        <div>
+        <div class="flex flex-col w-full gap-y-2">
             <label for="confirm-password">Confirm Password</label>
-            <input type="password" name="confirm-password" id="confirm-password">
+            <input type="password" name="confirm-password" id="confirm-password" class="rounded-md outline-cyan-500 bg-neutral-950 p-2 ">
         </div>
-        <button type="submit">Sign Up</button>
+        <button class="bg-cyan-400 w-full text-center text-neutral-900 hover:text-cyan-100 px-4 py-2 rounded-full border border-cyan-300 border-2" type="submit">Sign Up</button>
+        <p>Already have an account? <a href="log-in" class="text-cyan-400">Log in</a></p>
     </form>
 </body>
 </html>
