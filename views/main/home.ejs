@@ -4,22 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/output.css">
-    <script src="js/dialogHandler.js" defer></script>
+    <script src="/js/dialogHandler.js" defer></script>
     <title>JohansFileUploader</title>
 </head>
 <body class="bg-neutral-900 h-screen">
     <%- include("../partials/nav") %>
     <main class="flex flex-row bg-neutral-800 w-full h-full" >
-        <div class=" basis-1/6 bg-neutral-900 p-2 border-r-2 border-neutral-700">
+        <div class=" flex flex-col items-center gap-2 basis-1/6 bg-neutral-900 p-2 border-r-2 border-neutral-700">
             <h2 class="text-neutral-100 text-xl">Folders</h2>
-            <button id="new-folder-open-btn" class="border border-2 rounded-md border-cyan-900 w-28 text-center text-cyan-700 cursor-pointer">New Folder</button>
+            <div>
+                <% if(typeof folders !== 'undefined' && folders.length > 0){ %>
+                    <% folders.map(folder => { %>
+                        <div class="text-cyan-600 cursor-pointer">
+                           <a href="<%=`/home/folder/${folder.name}`%>"><%= folder.name  %></a> 
+                        </div>
+                    <% })} else { %>
+                        <div class="italic text-neutral-300">
+                            No folders found
+                        </div>
+                    <% }; %>
+            </div>
+            <button type="button" id="new-folder-open-btn" class="border border-2 rounded-md border-cyan-900 w-28 text-center text-cyan-700 cursor-pointer">New Folder</button>
         </div>
         <div class=" basis-5/6 bg-neutral-950 p-2 ">
-            <h2 class="text-neutral-100 text-xl">Content</h2>
+            <%- include("../partials/folder.ejs") %>
         </div>
     </main>
-    <dialog>
-        <button id="new-folder-close-btn">close</button>
+
+
+    <dialog class="w-1/4 h-fit border border-cyan-400 bg-neutral-900 text-neutral-100 rounded-md" id="folder-dialog">
+        <form action="/home/new-folder" method="post" class="flex flex-col p-4  gap-y-2">
+            <h2 class="text-center text-2xl">Create New Folder</h2>
+            <div class="flex flex-col gap-y-2">
+                <label for="folderName">Folder Name</label>
+                <input type="text" name="folderName" id="folderName" class="rounded-md outline-cyan-500 bg-neutral-950 p-2 ">
+            </div>
+            <button type="submit" class="bg-cyan-400 w-full text-center text-neutral-900 hover:text-cyan-100 px-4 py-2 rounded-full border border-cyan-300 border-2">Create Folder</button>
+            <button type="button" id="new-folder-close-btn" class="bg-red-400 w-full text-center text-neutral-900 hover:text-red-100 px-4 py-2 rounded-full border border-red-300 border-2">Close</button>
+        </form>
+        
     </dialog>
     
 </body>

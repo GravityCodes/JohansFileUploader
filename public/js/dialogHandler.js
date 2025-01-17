@@ -1,11 +1,24 @@
-const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("#new-folder-open-btn");
-const closeButton = document.querySelector("#new-folder-close-btn");
+const folderDialog = document.querySelector("#folder-dialog");
+const folderShowButton = document.querySelector("#new-folder-open-btn");
+const folderCloseButton = document.querySelector("#new-folder-close-btn");
 
-showButton.addEventListener("click", () => {
-  dialog.showModal();
+const fileDialog = document.querySelector("#file-dialog");
+const fileShowButton = document.querySelector("#file-open-btn");
+const fileCloseButton = document.querySelector("#file-close-btn")
+
+
+fileShowButton.addEventListener("click", () => {
+  fileDialog.showModal();
 });
 
-closeButton.addEventListener("click", () => {
-  dialog.close();
+fileCloseButton.addEventListener("click", () => {
+  fileDialog.close();
+});
+
+folderShowButton.addEventListener("click", () => {
+  folderDialog.showModal();
+});
+
+folderCloseButton.addEventListener("click", () => {
+  folderDialog.close();
 });

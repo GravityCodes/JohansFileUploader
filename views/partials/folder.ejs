@@ -1,0 +1,29 @@
+<div class="text-neutral-100">
+
+  <% if (typeof files !== 'undefined' && files.length > 0 ){ %>
+      <% files.map(file => { %>
+          <div class="flex flex-col bg-cyan-900 w-36 items-center text-center">
+              <div><%= file.name %></div>
+              <div><%= file.createdAt %></div>
+              <div><%= file.fileType %></div>
+              <div><%= file.downloadlink %></div>
+          </div>
+      <% }) %>
+      <button type="button" id="file-open-btn">Upload File</button>
+    <% } else { %>
+
+      <p>Select or create a folder</p>
+      
+    <% } %>
+    
+    
+</div>
+
+<dialog id="file-dialog">
+  <form action="<%= `/home/${typeof folderName !== 'undefined' ? folderName : null}/add-file`%>" method="post" enctype="multipart/form-data" class="flex flex-col items-center bg-neutral-600">
+    <label for="file">File</label>
+    <input type="file" name="file" id="file">
+    <button type="submit">Upload</button>
+    <button type="button" id="file-close-btn">Cancel</button>
+  </form>
+</dialog>
