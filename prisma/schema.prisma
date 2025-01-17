@@ -24,10 +24,10 @@ model User {
 
 model Folder {
   id        Int @id @default(autoincrement())
-  name      String
+  name      String @unique
   createdAt DateTime @default(now())
   owner     User @relation(fields: [ownerId], references: [id]) 
-  ownerId   Int @unique
+  ownerId   Int
   files File[]
 }
 
@@ -37,8 +37,8 @@ model File {
   createdAt DateTime @default(now())
   filetype String
   downloadlink String
-  parentFolder Folder @relation(fields: [parentFolderId], references: [id])
-  parentFolderId Int
+  parentFolder Folder @relation(fields: [parentFolderName], references: [name])
+  parentFolderName String
 }
 
 model Session {
